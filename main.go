@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
-
+	"fmt"
 	"github.com/rs/cors"
 	"github.com/gorilla/mux"
 	"video-call/server"
@@ -14,6 +14,10 @@ func main() {
 	go server.Broadcaster()
 
 	router := mux.NewRouter()
+	router.HandleFunc("/",func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		fmt.Fprint(w,"hellow world")
+	})
 
 	// Your existing route handlers
 	router.HandleFunc("/create", server.CreateRoomRequestHandler).Methods("GET")
