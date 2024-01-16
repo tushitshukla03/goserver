@@ -17,7 +17,7 @@ func main() {
 	router.HandleFunc("/",func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 		fmt.Fprint(w,"hellow world")
-	})
+	}).Methods("GET")
 
 	// Your existing route handlers
 	router.HandleFunc("/create", server.CreateRoomRequestHandler).Methods("GET")
