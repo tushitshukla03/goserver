@@ -2,10 +2,10 @@
  
     "build": {
       "builder": "NIXPACKS",
-      "buildCommand": "go build"
+      "buildCommand": "go build -tags netgo -ldflags '-s -w' -o app"
     },
     "deploy": {
-      "startCommand": "./video-call",
+      "startCommand": "./app",
       "numReplicas": 1,
       "sleepApplication": false,
       "restartPolicyType": "ON_FAILURE",
