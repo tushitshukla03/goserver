@@ -35,9 +35,10 @@ func main() {
 	handler := c.Handler(router)
 
 	log.Println("Starting Server on Port 8000")
-	err := http.ListenAndServe("0.0.0.0:8000", handler)
+	err := http.ListenAndServe(":8000", handler)
 	if err != nil {
 		log.Fatal(err)
 	}
 	http.Handle("/",router)
 }
+
